@@ -32,7 +32,7 @@
 
 <div id="todo-list" class="small-container">
 	<ol>
-		<li ng-repeat="todo in todos">{{ todo }} <a href="#">Delete</a></li>
+		<li ng-class="{strike: todo.deleted}" ng-repeat="todo in todos">{{ todo.todoText }} <a href="#" ng-click="deleteTodo($event, todo)">Delete</a></li>
 	</ol>
 </div>
 
