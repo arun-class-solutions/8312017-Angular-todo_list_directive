@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="todoList">
 <head>
 	<title>TODO List</title>
 	<!-- Latest compiled and minified CSS -->
@@ -9,8 +9,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
 	<link rel="stylesheet" href="css/style.css" />
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+
+	<script src="app.js"></script>
 </head>
-<body>
+<body ng-controller="todoCtrl">
 
 <div class="small-container well">
 	<div class="bold">
@@ -18,18 +22,17 @@
 	</div>
 
 	<div class="margin-top-20">
-		<input type="text" class="form-control" placeholder="Your todo..." />
+		<input type="text" class="form-control" placeholder="Your todo..." ng-model="todoInput" />
 	</div>
 
 	<div class="margin-top-20">
-		<button type="button" id="submit-todo" class="btn btn-primary">Submit Todo</button>
+		<button ng-click="submitTodo()" type="button" id="submit-todo" class="btn btn-primary">Submit Todo</button>
 	</div>
 </div>
 
 <div id="todo-list" class="small-container">
 	<ol>
-		<li>I want to go shopping <a href="#">Delete</a></li>
-		<li>Clean the house <a href="#">Delete</a></li>
+		<li ng-repeat="todo in todos">{{ todo }} <a href="#">Delete</a></li>
 	</ol>
 </div>
 
