@@ -1,5 +1,13 @@
 var app = angular.module("todoList", []);
 
+// Create a directive for todo list to be used throughout site
+app.directive("todoList", function() {
+    return {
+        templateUrl: "templates/todo-list.html",
+        controller: "todoCtrl"
+    }
+});
+
 app.controller("todoCtrl", function($scope) {
     // Set up initial todos array
     $scope.todos = [];
